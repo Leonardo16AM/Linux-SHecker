@@ -1,7 +1,7 @@
 # Linux-SHecker
 Mac/Linux checker for Competitive Programming
 ---
-##How to use:
+## How to use:
 
 Copy input testcases to Input folder.  
 Copy output testcases to Output folder.  
