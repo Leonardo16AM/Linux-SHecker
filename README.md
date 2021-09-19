@@ -20,7 +20,6 @@ To create a custom grader create a function grader(str input,str answer,str outp
 The current grader compares answer and input, in the future it will be replaced with a better grader.
 
 ### To do:
- - Make a better grader.
  - Calculate Memory (MLE)
  - Make posible run different codes and make a table.
 
