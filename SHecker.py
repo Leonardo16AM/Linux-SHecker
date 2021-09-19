@@ -48,6 +48,8 @@ class testcase:
         crun=crun.decode("utf-8").split('\n')[0]
         time.sleep(self.t_limit+0.05)
         
+
+
         #Checking if TLE
         try:
             is_run=subprocess.check_output(f"ps {crun}", shell=True)
@@ -83,7 +85,14 @@ class tests:
 
         print(colored("Building code",'blue'))
         os.system(f'make Code/{self.code_name}>file.log')
-        print(colored("Code builded succesfully",'green'))
+        log=open("file.log","r+").read()
+        
+        
+        if os.path.isfile(f"Code/{self.code_name}"): 
+            print(colored("Code builded succesfully",'green'))
+        else:
+            print(colored("Compilation Error",'red'))
+            return
 
         num_tc=ltc-ftc+1
         num_ok=0
@@ -95,8 +104,9 @@ class tests:
             res=self.testcases[i-1].evaluate()
             if res==1:
                 num_ok+=1
-        percent=num_ok*100/num_tc
 
+        os.remove(f"Code/{self.code_name}")
+        percent=num_ok*100/num_tc
         print("Total:",end=" ")
         if percent==100:
             print(colored(percent,'green'))
@@ -107,4 +117,4 @@ class tests:
         
 if __name__=="__main__":
     ds=tests()
-    time.sleep(30)
+    input(colored("Press a enter to close SHecker",'magenta'))
