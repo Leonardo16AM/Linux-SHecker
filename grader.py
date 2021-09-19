@@ -11,8 +11,8 @@ def grader(input,answer,output):
             if i!='' : answer.append(i)
         for i in outli:
             if i!='' : output.append(i)
-        print(answer)
-        print(output)
+        # print(answer)
+        # print(output)
         return answer==output
     except Exception:
         return False
